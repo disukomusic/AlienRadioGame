@@ -8,7 +8,7 @@ public class RadioManager : MonoBehaviour
     public RadioChannel[] channels;
     
     public float[] pots;
-    private void Update()
+    public void UpdatePlanets()
     {
         for (var _index = 0; _index < channels.Length; _index++)
         {
