@@ -82,6 +82,7 @@ public class KnobManager : MonoBehaviour
 
     public float GetPotValue(int potIndex)
     {
+        //imn so sorry i wanted so badly for this to be modular
         if (potIndex == 0)
         {
             return pot1Value;
