@@ -1,8 +1,10 @@
+using System;
 using System.IO.Ports;
 using UnityEngine;
 
 public class KnobManager : MonoBehaviour
 {
+    public static KnobManager Instance;
     // Public variables to hold the normalized values of the potentiometers
     public float pot1Value;
     public float pot2Value;
@@ -15,6 +17,12 @@ public class KnobManager : MonoBehaviour
     private float previousPot1Value;
     private float previousPot2Value;
     private float previousPot3Value;
+
+    private void Awake()
+    {
+        Instance = this;
+
+    }
 
     void Start()
     {
@@ -56,7 +64,7 @@ public class KnobManager : MonoBehaviour
                         float[] potValues = new float[] { pot1Value, pot2Value, pot3Value };
 
                         // Call the method from RadioManager with the pot values
-                        RadioManager.Instance.UpdatePlanets(potValues);
+                        // RadioManager.Instance.UpdatePlanets(potValues);
 
                         // Update previous values
                         previousPot1Value = pot1Value;
@@ -69,6 +77,25 @@ public class KnobManager : MonoBehaviour
             {
                 Debug.LogWarning("Error reading serial data: " + ex.Message);
             }
+        }
+    }
+
+    public float GetPotValue(int potIndex)
+    {
+        if (potIndex == 0)
+        {
+            return pot1Value;
+        } else if (potIndex == 1)
+        {
+            return pot2Value;
+        }
+        else if (potIndex == 2)
+        {
+            return pot3Value;
+        }
+        else
+        {
+            return 0;
         }
     }
 

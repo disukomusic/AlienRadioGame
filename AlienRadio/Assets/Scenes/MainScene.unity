@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 328018684}
   - component: {fileID: 328018685}
   m_Layer: 0
-  m_Name: EnvironmentAudio2
+  m_Name: ColdEnvironmentAudio2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -264,6 +264,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4711372441d442ba810500b309e1e9f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  potIndex: 1
   planetSound: {fileID: 11400000, guid: 5750a7384cbfe544994f1d4412704c6f, type: 2}
   audioSource: {fileID: 0}
 --- !u!1 &398460324
@@ -631,7 +632,7 @@ GameObject:
   - component: {fileID: 968059171}
   - component: {fileID: 968059173}
   m_Layer: 0
-  m_Name: EnvironmentAudio
+  m_Name: TerraEnvironmentAudio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -760,6 +761,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4711372441d442ba810500b309e1e9f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  potIndex: 0
   planetSound: {fileID: 11400000, guid: 1518395ccf0867246b47818a580989d3, type: 2}
   audioSource: {fileID: 0}
 --- !u!1 &1001644789
@@ -774,7 +776,7 @@ GameObject:
   - component: {fileID: 1001644791}
   - component: {fileID: 1001644792}
   m_Layer: 0
-  m_Name: EnvironmentAudio2
+  m_Name: TerraEnvironmentAudio2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -903,6 +905,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4711372441d442ba810500b309e1e9f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  potIndex: 1
   planetSound: {fileID: 11400000, guid: 801c059b03dc15243af6a0b11c471820, type: 2}
   audioSource: {fileID: 0}
 --- !u!1 &1091816151
@@ -917,7 +920,7 @@ GameObject:
   - component: {fileID: 1091816153}
   - component: {fileID: 1091816154}
   m_Layer: 0
-  m_Name: LanguageAudio
+  m_Name: TerraLanguageAudio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1046,6 +1049,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4711372441d442ba810500b309e1e9f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  potIndex: 2
   planetSound: {fileID: 11400000, guid: db9762c96de66de4ea97b6f6669fb3a5, type: 2}
   audioSource: {fileID: 0}
 --- !u!1 &1174864390
@@ -1077,9 +1081,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbb16c47ca74e0244b63a4b4aa43307b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  portName: COM3
-  baudRate: 9600
-  radioManager: {fileID: 1600415010}
+  pot1Value: 0
+  pot2Value: 0
+  pot3Value: 0
 --- !u!4 &1174864392
 Transform:
   m_ObjectHideFlags: 0
@@ -1107,7 +1111,7 @@ GameObject:
   - component: {fileID: 1571052077}
   - component: {fileID: 1571052078}
   m_Layer: 0
-  m_Name: EnvironmentAudio2
+  m_Name: HotEnvironmentAudio2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1236,6 +1240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4711372441d442ba810500b309e1e9f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  potIndex: 1
   planetSound: {fileID: 11400000, guid: 07186da05b013604db340371d9938e15, type: 2}
   audioSource: {fileID: 0}
 --- !u!1 &1600415008
@@ -1299,7 +1304,7 @@ GameObject:
   - component: {fileID: 1660267236}
   - component: {fileID: 1660267237}
   m_Layer: 0
-  m_Name: LanguageAudio
+  m_Name: HotLanguageAudio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1428,6 +1433,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4711372441d442ba810500b309e1e9f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  potIndex: 2
   planetSound: {fileID: 11400000, guid: 1f280704e4bf18348b5635bb1e770651, type: 2}
   audioSource: {fileID: 0}
 --- !u!1 &1715010665
@@ -1442,7 +1448,7 @@ GameObject:
   - component: {fileID: 1715010667}
   - component: {fileID: 1715010668}
   m_Layer: 0
-  m_Name: EnvironmentAudio
+  m_Name: ColdEnvironmentAudio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1571,6 +1577,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4711372441d442ba810500b309e1e9f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  potIndex: 0
   planetSound: {fileID: 11400000, guid: cf84839a3be4c2a4ca72c5f11bb791e0, type: 2}
   audioSource: {fileID: 0}
 --- !u!1 &1812414547
@@ -1585,7 +1592,7 @@ GameObject:
   - component: {fileID: 1812414549}
   - component: {fileID: 1812414550}
   m_Layer: 0
-  m_Name: LanguageAudio
+  m_Name: ColdLanguageAudio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1714,6 +1721,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4711372441d442ba810500b309e1e9f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  potIndex: 2
   planetSound: {fileID: 11400000, guid: 9fb3adab0a25de74e822a8cc27391a00, type: 2}
   audioSource: {fileID: 0}
 --- !u!1 &1818436726
@@ -1728,7 +1736,7 @@ GameObject:
   - component: {fileID: 1818436728}
   - component: {fileID: 1818436729}
   m_Layer: 0
-  m_Name: EnvironmentAudio
+  m_Name: HotEnvironmentAudio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1857,5 +1865,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4711372441d442ba810500b309e1e9f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  potIndex: 0
   planetSound: {fileID: 11400000, guid: f72fbe2f6ed9f2442abda01570b59da5, type: 2}
   audioSource: {fileID: 0}
