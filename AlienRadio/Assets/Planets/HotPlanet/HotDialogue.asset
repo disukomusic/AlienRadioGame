@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5566218b0c894b07b5c3af762f7e3eb9, type: 3}
   m_Name: HotDialogue
   m_EditorClassIdentifier: 
-  low: 0
-  high: 0
+  low: 0.5
+  high: 1

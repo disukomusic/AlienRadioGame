@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: TerraEnv2
   m_EditorClassIdentifier: 
   low: 0
-  high: 0
+  high: 0.125

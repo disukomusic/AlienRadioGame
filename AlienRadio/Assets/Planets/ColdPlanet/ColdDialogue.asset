@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: ColdDialogue
   m_EditorClassIdentifier: 
   low: 0
-  high: 0
+  high: 0.25
