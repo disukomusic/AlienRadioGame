@@ -1,6 +1,6 @@
 using System;
 using UnityEngine;
-using System.IO.Ports;
+
 public class LedManager : MonoBehaviour
 {
     public static LedManager Instance;
@@ -86,7 +86,7 @@ public class LedManager : MonoBehaviour
         }
         catch (Exception ex)
         {
-            Debug.LogError("Error in SendData: " + ex.Message);
+            //Debug.LogError("Error in SendData: " + ex.Message);
         }
     }
 }

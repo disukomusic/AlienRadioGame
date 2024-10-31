@@ -29,7 +29,9 @@ public class KnobManager : MonoBehaviour
     {
         // Open the serial port
         serialPort.Open();
-        serialPort.ReadTimeout = 100; // Set a read timeout for stability
+        serialPort.ReadTimeout = 50; // Set a read timeout for stability
+        serialPort.WriteTimeout = 50;
+        
     }
 
     void Update()
@@ -66,7 +68,7 @@ public class KnobManager : MonoBehaviour
             }
             catch (System.Exception ex)
             {
-                Debug.LogWarning("Error reading serial data: " + ex.Message);
+                //Debug.LogWarning("Error reading serial data: " + ex.Message);
             }
         }
     }
