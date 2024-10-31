@@ -5,13 +5,14 @@ using UnityEngine;
 public class KnobManager : MonoBehaviour
 {
     public static KnobManager Instance;
+    public static string portName = "COM3";
     // Public variables to hold the normalized values of the potentiometers
     public float pot1Value;
     public float pot2Value;
     public float pot3Value;
 
     // Create a SerialPort object for communication
-    SerialPort serialPort = new SerialPort("COM3", 9600); // Adjust COM port as necessary
+    SerialPort serialPort = new SerialPort(portName, 9600); // Adjust COM port as necessary
 
     // Variables to store previous values for comparison
     private float previousPot1Value;
@@ -59,17 +60,6 @@ public class KnobManager : MonoBehaviour
                         pot1Value = newPot1Value;
                         pot2Value = newPot2Value;
                         pot3Value = newPot3Value;
-
-                        // Prepare pot values array to pass to RadioManager
-                        float[] potValues = new float[] { pot1Value, pot2Value, pot3Value };
-
-                        // Call the method from RadioManager with the pot values
-                        // RadioManager.Instance.UpdatePlanets(potValues);
-
-                        // Update previous values
-                        previousPot1Value = pot1Value;
-                        previousPot2Value = pot2Value;
-                        previousPot3Value = pot3Value;
                     }
                 }
             }
