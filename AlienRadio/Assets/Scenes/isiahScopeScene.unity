@@ -657,8 +657,9 @@ MonoBehaviour:
   a: 0.75
   b: 7
   choice: 0
-  c1: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  c2: {r: 1, g: 0, b: 0, a: 1}
+  c1: {r: 0.39, g: 1, b: 0.3971138, a: 1}
+  c2: {r: 0.48900002, g: 0.57319576, b: 1, a: 1}
+  lengthOfLineRenderer: 5195
 --- !u!82 &950620621
 AudioSource:
   m_ObjectHideFlags: 0
@@ -669,11 +670,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 251cb161649aba34981316a9b84f4e58, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
