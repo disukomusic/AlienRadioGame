@@ -1,84 +1,81 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using System.IO.Ports;
-using System.Threading;
+using UnityEngine;
 
 public class KnobManager : MonoBehaviour
 {
-    private SerialPort serialPort;
-    public string portName = "COM3";  // Set this to the port your Arduino is connected to
-    public int baudRate = 9600;
+    // Public variables to hold the normalized values of the potentiometers
+    public float pot1Value;
+    public float pot2Value;
+    public float pot3Value;
 
-    public RadioManager radioManager;
-    private const int MaxAnalogValue = 1023;
+    // Create a SerialPort object for communication
+    SerialPort serialPort = new SerialPort("COM3", 9600); // Adjust COM port as necessary
 
-    private Thread serialThread;
-    private bool isRunning = false;
-    private string lastSerialInput;
+    // Variables to store previous values for comparison
+    private float previousPot1Value;
+    private float previousPot2Value;
+    private float previousPot3Value;
 
-    private void Start()
+    void Start()
     {
-        serialPort = new SerialPort(portName, baudRate);
+        // Open the serial port
         serialPort.Open();
-        
-        // Start the serial reading thread
-        isRunning = true;
-        serialThread = new Thread(ReadSerialData);
-        serialThread.Start();
+        serialPort.ReadTimeout = 100; // Set a read timeout for stability
     }
 
-    private void ReadSerialData()
+    void Update()
     {
-        while (isRunning && serialPort.IsOpen)
+        // Check if there's data available from Arduino
+        if (serialPort.IsOpen && serialPort.BytesToRead > 0)
         {
             try
             {
-                lastSerialInput = serialPort.ReadLine();
-                ProcessSerialInput(lastSerialInput);
+                // Read a line from the serial port
+                string data = serialPort.ReadLine();
+
+                // Split the data by comma
+                string[] values = data.Split(',');
+
+                // Ensure we have 3 values
+                if (values.Length == 3)
+                {
+                    // Parse values to floats, scale to 0-1, and map to public variables
+                    float newPot1Value = float.Parse(values[0]) / 1023f;
+                    float newPot2Value = float.Parse(values[1]) / 1023f;
+                    float newPot3Value = float.Parse(values[2]) / 1023f;
+
+                    // Check if any of the potentiometer values have changed
+                    if (newPot1Value != previousPot1Value || newPot2Value != previousPot2Value || newPot3Value != previousPot3Value)
+                    {
+                        // Update the public values
+                        pot1Value = newPot1Value;
+                        pot2Value = newPot2Value;
+                        pot3Value = newPot3Value;
+
+                        // Prepare pot values array to pass to RadioManager
+                        float[] potValues = new float[] { pot1Value, pot2Value, pot3Value };
+
+                        // Call the method from RadioManager with the pot values
+                        RadioManager.Instance.UpdatePlanets(potValues);
+
+                        // Update previous values
+                        previousPot1Value = pot1Value;
+                        previousPot2Value = pot2Value;
+                        previousPot3Value = pot3Value;
+                    }
+                }
             }
-            catch (Exception e)
+            catch (System.Exception ex)
             {
-                Debug.LogWarning("Error reading serial data: " + e.Message);
+                Debug.LogWarning("Error reading serial data: " + ex.Message);
             }
         }
     }
 
-    private void ProcessSerialInput(string serialInput)
+    void OnApplicationQuit()
     {
-        string[] values = serialInput.Split(' ');
-
-        if (values.Length >= 3)
-        {
-            // Parse and normalize each potentiometer value
-            float pot1 = Mathf.Clamp(float.Parse(values[1]) / MaxAnalogValue, 0, 1);
-            float pot2 = Mathf.Clamp(float.Parse(values[3]) / MaxAnalogValue, 0, 1);
-            float pot3 = Mathf.Clamp(float.Parse(values[5]) / MaxAnalogValue, 0, 1);
-
-            // Update pots array in RadioManager only if values have changed
-            if (radioManager.pots[0] != pot1 || radioManager.pots[1] != pot2 || radioManager.pots[2] != pot3)
-            {
-                radioManager.pots[0] = pot1;
-                radioManager.pots[1] = pot2;
-                radioManager.pots[2] = pot3;
-
-                // Trigger the update in RadioManager
-                radioManager.UpdatePlanets();
-            }
-        }
-    }
-
-    private void OnApplicationQuit()
-    {
-        isRunning = false;
-        
-        if (serialThread != null && serialThread.IsAlive)
-        {
-            serialThread.Join();
-        }
-
-        if (serialPort != null && serialPort.IsOpen)
+        // Close the serial port when the application quits
+        if (serialPort.IsOpen)
         {
             serialPort.Close();
         }
