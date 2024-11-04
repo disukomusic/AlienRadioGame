@@ -12,7 +12,7 @@ public class RadioStatic : MonoBehaviour
 
     private void Update()
     {
-        staticSource.volume = 1 - CalculateAverageVolume(audioSources);
+        staticSource.volume = (1 - CalculateAverageVolume(audioSources)) / 3;
     }
     
     
