@@ -28,8 +28,8 @@ public class LedManager : MonoBehaviour
 
                     if (KnobManager.Instance.serialPort.IsOpen)
                     {
-                        KnobManager.Instance.serialPort.WriteLine($"{potIndex}, {planetIndex}, {earthVolume}");
-                        Debug.Log($"{potIndex}, {planetIndex}, {earthVolume}");
+                        KnobManager.Instance.serialPort.WriteLine($"{potIndex},{planetIndex},{earthVolume}");
+                        Debug.Log($"{potIndex},{planetIndex},{earthVolume}");
                     }
                     else
                     {
@@ -53,8 +53,8 @@ public class LedManager : MonoBehaviour
 
                     if (KnobManager.Instance.serialPort.IsOpen)
                     {
-                        KnobManager.Instance.serialPort.WriteLine($"{potIndex}, {planetIndex}, {hotVolume}");
-                        Debug.Log($"{potIndex}, {planetIndex}, {hotVolume}");
+                        KnobManager.Instance.serialPort.WriteLine($"{potIndex},{planetIndex},{hotVolume}");
+                        Debug.Log($"{potIndex},{planetIndex},{hotVolume}");
                     }
                     else
                     {
@@ -74,8 +74,8 @@ public class LedManager : MonoBehaviour
 
                     if (KnobManager.Instance.serialPort.IsOpen)
                     {
-                        KnobManager.Instance.serialPort.WriteLine($"{potIndex}, {planetIndex}, {coldVolume}");
-                        Debug.Log($"{potIndex}, {planetIndex}, {coldVolume}");
+                        KnobManager.Instance.serialPort.WriteLine($"{potIndex},{planetIndex},{coldVolume}");
+                        Debug.Log($"{potIndex},{planetIndex},{coldVolume}");
                     }
                     else
                     {
