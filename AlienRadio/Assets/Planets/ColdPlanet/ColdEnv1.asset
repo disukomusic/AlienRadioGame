@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: ColdEnv1
   m_EditorClassIdentifier: 
   low: 0.125
-  high: 0.5
+  high: 0.3

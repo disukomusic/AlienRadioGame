@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5566218b0c894b07b5c3af762f7e3eb9, type: 3}
   m_Name: HotEnv2
   m_EditorClassIdentifier: 
-  low: 0.125
-  high: 0.375
+  low: 0.7
+  high: 1
