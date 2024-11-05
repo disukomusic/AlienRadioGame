@@ -179,7 +179,7 @@ AudioSource:
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
-  Pan2D: 0
+  Pan2D: 0.704
   rolloffMode: 0
   BypassEffects: 0
   BypassListenerEffects: 0
@@ -362,7 +362,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: ed43ee062da8774489f241c0ab7d616d, type: 3}
+  m_audioClip: {fileID: 8300000, guid: ab268f32b4924a94d93fee69bf71ebf4, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -1303,7 +1303,7 @@ AudioSource:
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
-  Pan2D: 0
+  Pan2D: 0.77
   rolloffMode: 0
   BypassEffects: 0
   BypassListenerEffects: 0
@@ -1452,7 +1452,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 29c76baf78fea294aac82cb9cf0a1342, type: 3}
+  m_audioClip: {fileID: 8300000, guid: bc15efaae9baf144fa03256a9d228b0b, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0
   m_Pitch: 1
@@ -1464,7 +1464,7 @@ AudioSource:
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
-  Pan2D: 0
+  Pan2D: -0.718
   rolloffMode: 0
   BypassEffects: 0
   BypassListenerEffects: 0
@@ -2010,7 +2010,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 1601727ac34782343b372d44fcc9cff0, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 846d3ca25c1f4a147ae34448969afeb3, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0
   m_Pitch: 1
@@ -2022,7 +2022,7 @@ AudioSource:
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
-  Pan2D: 0
+  Pan2D: 0.77
   rolloffMode: 0
   BypassEffects: 0
   BypassListenerEffects: 0
@@ -2526,7 +2526,7 @@ AudioSource:
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
-  Pan2D: 0
+  Pan2D: -0.775
   rolloffMode: 0
   BypassEffects: 0
   BypassListenerEffects: 0
@@ -2902,7 +2902,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: cd946f87f43d1ec468cbd1e97ad2474f, type: 3}
+  m_audioClip: {fileID: 8300000, guid: b454ffd2dfbebf740aea52ea201876e9, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0
   m_Pitch: 1
@@ -2914,7 +2914,7 @@ AudioSource:
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
-  Pan2D: 0
+  Pan2D: -0.726
   rolloffMode: 0
   BypassEffects: 0
   BypassListenerEffects: 0
