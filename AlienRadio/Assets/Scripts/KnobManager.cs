@@ -12,7 +12,7 @@ public class KnobManager : MonoBehaviour
     public float pot3Value;
 
     // Create a SerialPort object for communication
-    public SerialPort serialPort = new SerialPort(portName, 9600); // Adjust COM port as necessary
+    public SerialPort serialPort = new SerialPort(portName, 115200); // Adjust COM port as necessary
 
     // Variables to store previous values for comparison
     private float previousPot1Value;
@@ -29,8 +29,8 @@ public class KnobManager : MonoBehaviour
     {
         // Open the serial port
         serialPort.Open();
-        serialPort.ReadTimeout = 50; // Set a read timeout for stability
-        serialPort.WriteTimeout = 50;
+        serialPort.ReadTimeout = 25; // Set a read timeout for stability
+        serialPort.WriteTimeout = 25;
         
     }
 
