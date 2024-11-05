@@ -15,78 +15,52 @@ public class LedManager : MonoBehaviour
 
     public void SendData()
     {
-        try
+        // Calculate and send data if average volume > 0.8 for Earth sources
+        CalculateAndSendAverage(Earthsources, 0);
+
+        
+        // Calculate and send data if average volume > 0.8 for Hot sources
+        CalculateAndSendAverage(Hotsources, 1);
+
+        // Calculate and send data if average volume > 0.8 for Cold sources
+        CalculateAndSendAverage(Coldsources, 2);
+
+    }
+
+    private bool CalculateAndSendAverage(AudioSource[] sources, int planetIndex)
+    {
+        if (sources.Length == 0) return false;
+
+        float totalVolume = 0f;
+
+        foreach (AudioSource source in sources)
         {
-            foreach (AudioSource audioSource in Earthsources)
-            {
-                PlanetSoundContainer container = audioSource.GetComponent<PlanetSoundContainer>();
-                if (container != null)
-                {
-                    int potIndex = container.potIndex;
-                    int planetIndex = 0; // Hardcoded
-                    float earthVolume = audioSource.volume;
+            totalVolume += source.volume;
+        }
 
-                    if (KnobManager.Instance.serialPort.IsOpen)
-                    {
-                        KnobManager.Instance.serialPort.WriteLine($"{potIndex},{planetIndex},{earthVolume}");
-                        Debug.Log($"{potIndex},{planetIndex},{earthVolume}");
-                    }
-                    else
-                    {
-                        Debug.LogWarning("Serial port is not open!");
-                    }
-                }
-                else
-                {
-                    Debug.LogWarning("PlanetSoundContainer not found on AudioSource.");
-                }
+        float averageVolume = totalVolume / sources.Length;
+        //Debug.Log($"Average volume for planet {planetIndex}: {averageVolume}");
+
+        if (averageVolume > 0.5f)
+        {
+            if (KnobManager.Instance.serialPort.IsOpen)
+            {
+                KnobManager.Instance.serialPort.WriteLine($"{planetIndex}, {averageVolume}");
+                Debug.Log($"{planetIndex}, {averageVolume}");
+                return true;
             }
-
-            foreach (AudioSource audioSource in Hotsources)
+            else
             {
-                PlanetSoundContainer container = audioSource.GetComponent<PlanetSoundContainer>();
-                if (container != null)
-                {
-                    int potIndex = container.potIndex;
-                    int planetIndex = 1; // Hardcoded
-                    float hotVolume = audioSource.volume;
-
-                    if (KnobManager.Instance.serialPort.IsOpen)
-                    {
-                        KnobManager.Instance.serialPort.WriteLine($"{potIndex},{planetIndex},{hotVolume}");
-                        Debug.Log($"{potIndex},{planetIndex},{hotVolume}");
-                    }
-                    else
-                    {
-                        Debug.LogWarning("Serial port is not open!");
-                    }
-                }
-            }
-
-            foreach (AudioSource audioSource in Coldsources)
-            {
-                PlanetSoundContainer container = audioSource.GetComponent<PlanetSoundContainer>();
-                if (container != null)
-                {
-                    int potIndex = container.potIndex;
-                    int planetIndex = 2; // Hardcoded
-                    float coldVolume = audioSource.volume;
-
-                    if (KnobManager.Instance.serialPort.IsOpen)
-                    {
-                        KnobManager.Instance.serialPort.WriteLine($"{potIndex},{planetIndex},{coldVolume}");
-                        Debug.Log($"{potIndex},{planetIndex},{coldVolume}");
-                    }
-                    else
-                    {
-                        Debug.LogWarning("Serial port is not open!");
-                    }
-                }
+                Debug.LogWarning("Serial port is not open!");
+                
             }
         }
-        catch (Exception ex)
+        else if (averageVolume < 0.5f)
         {
-            //Debug.LogError("Error in SendData: " + ex.Message);
+            KnobManager.Instance.serialPort.WriteLine($"off");
+            Debug.Log($"off");
         }
+
+        return false;
     }
 }

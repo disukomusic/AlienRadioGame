@@ -5,7 +5,7 @@ using UnityEngine;
 public class KnobManager : MonoBehaviour
 {
     public static KnobManager Instance;
-    public static string portName = "COM13";
+    public static string portName = "COM12";
     // Public variables to hold the normalized values of the potentiometers
     public float pot1Value;
     public float pot2Value;
@@ -62,6 +62,13 @@ public class KnobManager : MonoBehaviour
                         pot1Value = newPot1Value;
                         pot2Value = newPot2Value;
                         pot3Value = newPot3Value;
+
+                        // Update previous values to prevent repeated sends
+                        previousPot1Value = newPot1Value;
+                        previousPot2Value = newPot2Value;
+                        previousPot3Value = newPot3Value;
+
+                        // Send the updated data
                         LedManager.Instance.SendData();
                     }
                 }
